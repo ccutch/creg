@@ -8,7 +8,7 @@ const commands = new Set([
   'help',
   'init',
   'start',
-  'add',
+  'publish',
   'import'
 ])
 
@@ -36,7 +36,7 @@ Commands:
   help (default)      Print this message
   init                Initialize creg files
   start               Start api server
-  publish*            Publish components to remote registry
+  publish             Publish components to remote registry
   import*             Import component from remote registry
 
 Options:

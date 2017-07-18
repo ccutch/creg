@@ -41,8 +41,8 @@ exports.writeComponent = async (hash, data) => {
 }
 
 
-exports.loadComponent = async hash => {
-  let root = path.join(compdir, hash)
+exports.loadComponent = async (hash, abs=false) => {
+  let root = abs ? hash : path.join(compdir, hash)
   let isDir = (await stat(root)).isDirectory()
 
   if (isDir) {
@@ -50,7 +50,7 @@ exports.loadComponent = async hash => {
     let files = await readdir(root)
     for (let file of files) {
       if (file !== '.DS_Store')
-        res[file] = await exports.loadComponent(path.join(hash, file))
+        res[file] = await exports.loadComponent(path.join(hash, file), abs)
     }
 
     return res

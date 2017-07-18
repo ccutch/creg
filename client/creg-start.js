@@ -14,7 +14,7 @@ const args = minimist(process.argv, {
   }
 })
 
-conts printHelpMessage = () => `
+const printHelpMessage = () => `
 Start CREG API Server
 
 Usage:

@@ -19,11 +19,15 @@ exports.uploadComponent = async (req, res) => {
   let { name } = req.params
   let data = null
 
+  console.log(req.headers)
   try {
     data = await json(req)
+    console.log('was json')
   } catch(err) {
+    console.log(err)
     data = await text(req)
   }
+  console.log(data)
 
   return await registry.registerComponent(name, data)
 }
